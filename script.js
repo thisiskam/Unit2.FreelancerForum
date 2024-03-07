@@ -58,18 +58,18 @@ function averageWage() {
 //function that will be called every few seconds to add new freelancers to the page
 function addFreelancer() {
     if(freeLancers.length <= maxFreelancers) {
-    //functions to get random data for a new freelancer
-    const addName = names[Math.floor(Math.random() * names.length)];
-    const addOccupation = occupations[Math.floor(Math.random() * occupations.length)];
-    const addWage = (Math.floor(Math.random() * 10) + 1) * 10;
-    //pushes that data to the freeLancers array
-    freeLancers.push({name:addName, occupation:addOccupation, wage:addWage});
+        //functions to get random data for a new freelancer
+        const addName = names[Math.floor(Math.random() * names.length)];
+        const addOccupation = occupations[Math.floor(Math.random() * occupations.length)];
+        const addWage = (Math.floor(Math.random() * 10) + 1) * 10;
+        //pushes that data to the freeLancers array
+        freeLancers.push({name:addName, occupation:addOccupation, wage:addWage});
 
-    //calls the function to add the new data to the table, doing it this way will prevent the data from repeating over and over. 
-    addFreelancerToTable({name:addName, occupation:addOccupation, wage:addWage})
+        //calls the function to add the new data to the table, doing it this way will prevent the data from repeating over and over. 
+        addFreelancerToTable({name:addName, occupation:addOccupation, wage:addWage})
 
-    //collects the average wage each time
-    averageWage()
+        //collects the average wage each time
+        averageWage()
     } else {
         clearInterval(addFreelancerIntervalId)
         alert('No More Freelancers To Show')
