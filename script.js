@@ -6,8 +6,10 @@ const freeLancers = [
     {name:'Morgan', occupation:'Nanny', wage:50}
 ]
 
+const maxFreelancers = 20
+
 //set interval for how often a freelancer is added to the freeLancers array
-const addFreelancerIntervalId = setInterval(addFreelancer, 5000);
+const addFreelancerIntervalId = setInterval(addFreelancer, 3000);
 
 //Render is called to the page
 render()
@@ -55,7 +57,7 @@ function averageWage() {
 
 //function that will be called every few seconds to add new freelancers to the page
 function addFreelancer() {
-
+    if(freeLancers.length <= maxFreelancers) {
     //functions to get random data for a new freelancer
     const addName = names[Math.floor(Math.random() * names.length)];
     const addOccupation = occupations[Math.floor(Math.random() * occupations.length)];
@@ -68,4 +70,8 @@ function addFreelancer() {
 
     //collects the average wage each time
     averageWage()
+    } else {
+        clearInterval(addFreelancerIntervalId)
+        alert('No More Freelancers To Show')
+      }
   }
