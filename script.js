@@ -1,5 +1,5 @@
 const names = ['Kameron', 'Max', 'Chelsea', 'Michelle', 'Megan', 'Lucas', 'Scott', 'Julia'];
-const occupations = ['Constractor', 'Developer', 'Translator', 'Cleaner', 'Realtor', 'Welder', 'Teacher']
+const occupations = ['Contractor', 'Developer', 'Translator', 'Cleaner', 'Realtor', 'Welder', 'Teacher']
 
 const freeLancers = [
     {name:'Andre', occupation:'Dog Walker', wage:30},
@@ -36,7 +36,8 @@ function averageWage() {
     let total = 0
     freeLancers.forEach((freelancer) => total = total + freelancer.wage);
     let average = total / freeLancers.length
-    document.getElementById('averagePrice').textContent=`${average}`;
+    let dollars = parseFloat(average).toFixed(2)
+    document.getElementById('averagePrice').textContent=`${dollars}`;
 }
 
 function addFreelancer() {
@@ -49,7 +50,7 @@ function addFreelancer() {
   
     freeLancers.push({name:addName, occupation:addOccupation, wage:addWage});
     
-    render()
+    addFreelancerToTable({name:addName, occupation:addOccupation, wage:addWage})
   }
 //function should select the table from html
 //funtion should then call
